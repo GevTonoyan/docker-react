@@ -1,6 +1,7 @@
-version: "3"
+version: '3.'
+
 services:
-  web:
+  web-app:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -8,13 +9,4 @@ services:
       - "3000:3000"
     volumes:
       - /app/node_modules
-      - .:/app
-  tests:
-    stdin_open: true
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ["npm", "run", "test"]
+      - .:/app 
